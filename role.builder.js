@@ -1,4 +1,5 @@
 var roleRepairer = require('role.repairer');
+var funcHarvest = require('func.harvest');
 
 var roleBuilder = {
 
@@ -7,13 +8,13 @@ var roleBuilder = {
 
 	    if(creep.memory.building && creep.carry.energy == 0) {
             creep.memory.building = false;
-            creep.say('ð');
+            creep.say('Hungry');
 	    }
 	    if(!creep.memory.building && creep.carry.energy == creep.carryCapacity) {
 	        creep.memory.building = true;
 	        var sources = creep.pos.findClosestByPath(FIND_SOURCES)
 	        creep.moveTo(sources) == ERR_NOT_IN_RANGE;
-	        creep.say('ð§');
+	        creep.say('Building');
 	    }
 
 	    if(creep.memory.building) {
@@ -23,15 +24,10 @@ var roleBuilder = {
             }
 	    }
 	    else {
-	        // var sources = creep.room.find(FIND_SOURCES);
-            var sources = creep.pos.findClosestByPath(FIND_SOURCES)
-            if(creep.harvest(sources) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources, {visualizePathStyle: {stroke: '#ffaa00'}});
-            }
+            funcHarvest.run(creep);
 	    }
         if (targets == undefined) {
-	        creep.say('ð');
-	        // console.log(creep.name + ': nothing to build, repairing.');
+	        creep.say('Repairing');
 	        roleRepairer.run(creep);
 		}
 	}

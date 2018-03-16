@@ -6,7 +6,7 @@ var roleMidas = require('role.midas');
 var funcHarvest = require('func.harvest')
 var funcPickupEnergy = require('func.pickup.energy')
 
-var UpgradersNames = ['Aegir', 'Aesir', 'Angrboda', 'Askr', 'Audhumla', 'Austri', 'Austri', 'Balder', 'Bragi', 'Byggvir', 'Beyla', 'Disir', 'Dwarves', 'Earth', 'Easter', 'Edda', 'Eir', 'Elves', 'Embla', 'Etins', 'Fenrir', 'Forseti', 'Frey', 'Freya', 'Frigga', 'Gefjon', 'Gungnir', 'Harrow', 'Heimdall', 'Hel', 'Hod', 'Hoenir', 'Hof', 'Holda', 'Idunna', 'Ing', 'Irminsul', 'Jormungandr', 'Kvasir', 'Land-wights', 'Lif', 'Lodurr', 'Lofn', 'Loki', 'Midgard Serpent', 'Mimir', 'Mjollnir', 'Moon', 'Muspilli', 'Nanna', 'Nerthus', 'Nine Worlds', 'Njord', 'Norns', 'Odin', 'Odr', 'Odroerir', 'PoeticEdda', 'ProseEdda', 'Ragnarok', 'Ratatosk', 'Runes', 'Saga', 'SÃ¡ga', 'Saxnot', 'Sif', 'Sigyn', 'Sjofn', 'Skadi', 'Skirnir', 'Sleipnir', 'Snotra', 'Sunna', 'Surt', 'Syn', 'Thor', 'Thjalfi', 'Thrud', 'Thurse', 'Troll', 'Tyr', 'Ull', 'Utgard', 'Vali', 'Valkyries', 'Vanir', 'Var', 'Ve', 'Vidar', 'Vili', 'Vingolf', 'Vor', 'Walpurga', 'WartAlfs', 'Wayland', 'Wild Hunt', 'Yggdrasill'];
+var UpgradersNames = ['Aegir', 'Aesir', 'Angrboda', 'Askr', 'Audhumla', 'Austri', 'Austri', 'Balder', 'Bragi', 'Byggvir', 'Beyla', 'Disir', 'Dwarves', 'Earth', 'Easter', 'Edda', 'Eir', 'Elves', 'Embla', 'Etins', 'Fenrir', 'Forseti', 'Frey', 'Freya', 'Frigga', 'Gefjon', 'Gungnir', 'Harrow', 'Heimdall', 'Hel', 'Hod', 'Hoenir', 'Hof', 'Holda', 'Idunna', 'Ing', 'Irminsul', 'Jormungandr', 'Kvasir', 'Land-wights', 'Lif', 'Lodurr', 'Lofn', 'Loki', 'Midgard Serpent', 'Mimir', 'Mjollnir', 'Moon', 'Muspilli', 'Nanna', 'Nerthus', 'Nine Worlds', 'Njord', 'Norns', 'Odin', 'Odr', 'Odroerir', 'PoeticEdda', 'ProseEdda', 'Ragnarok', 'Ratatosk', 'Runes', 'Saga', 'SÃÂ¡ga', 'Saxnot', 'Sif', 'Sigyn', 'Sjofn', 'Skadi', 'Skirnir', 'Sleipnir', 'Snotra', 'Sunna', 'Surt', 'Syn', 'Thor', 'Thjalfi', 'Thrud', 'Thurse', 'Troll', 'Tyr', 'Ull', 'Utgard', 'Vali', 'Valkyries', 'Vanir', 'Var', 'Ve', 'Vidar', 'Vili', 'Vingolf', 'Vor', 'Walpurga', 'WartAlfs', 'Wayland', 'Wild Hunt', 'Yggdrasill'];
 var BuildersNames = ['Ardhanarishvara', 'Muneeswarar', 'Muthappan', 'Bhairava', 'Nataraja', 'Pashupati', 'Harihara', 'Rudra', 'Lingam', 'Dakshinamurthy', 'Ravananugraha', 'Vaidheeswara', 'Lingodbhava', 'Somaskanda', 'Bhikshatana', 'SriManjunatha', 'Narayana', 'Thirumal', 'Perumal', 'Jagannath', 'Hayagriva', 'Venkateshwara', 'VaikunthaChaturmurti', 'VaikunthaKamalaja', 'Mohini', 'LakshmiNarayan', 'Vishvarupa', 'Ranganatha', 'Dasavatara', 'Padmanabha', 'AnantaShayana'];
 
 module.exports.loop = function () {
@@ -76,7 +76,7 @@ module.exports.loop = function () {
     if(Game.spawns['Spawn1'].spawning) { 
         var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
         Game.spawns['Spawn1'].room.visual.text(
-            'ð ï¸' + spawningCreep.memory.role,
+            'Ã°ÂÂÂ Ã¯Â¸Â' + spawningCreep.memory.role,
             Game.spawns['Spawn1'].pos.x + 1, 
             Game.spawns['Spawn1'].pos.y, 
             {align: 'left', opacity: 0.8});
