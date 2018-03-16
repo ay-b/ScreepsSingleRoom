@@ -5,20 +5,15 @@ var roleRepaier = {
 
         if(creep.memory.repairing && creep.carry.energy == 0) {
             creep.memory.repairing  = false;
-            creep.say('🍔');
+            creep.say('ð');
         }
 
         if(!creep.memory.repairing && creep.carry.energy == creep.carryCapacity) {
             creep.memory.repairing = true;
-            creep.say('🚧');
+            creep.say('ð§');
         }
 
         if(creep.memory.repairing) {
-            // var target = creep.pos.findClosestByPath(FIND_STRUCTURES, {
-            //     filter: object => object.hits < object.hitsMax
-            // });
-            // if(creep.repair(target) == ERR_NOT_IN_RANGE) {
-            //     creep.moveTo(target, {visualizePathStyle: {stroke: '#ff7777'}});
             const targets = creep.room.find(FIND_STRUCTURES, {
                 filter: object => object.hits < object.hitsMax
             });
@@ -28,7 +23,7 @@ var roleRepaier = {
             if(targets.length > 0) {
                 if(creep.repair(targets[0]) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffaa00'}});
-                    creep.say('🚑');
+                    creep.say('ð');
                 }
             }
         }
@@ -36,7 +31,7 @@ var roleRepaier = {
             var sources = creep.pos.findClosestByPath(FIND_SOURCES);
             if(creep.harvest(sources) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources, {visualizePathStyle: {stroke: '#ffaa00'}});
-                creep.say('🍔');
+                creep.say('ð');
             }
         }
 	}
