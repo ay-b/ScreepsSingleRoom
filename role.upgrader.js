@@ -1,3 +1,6 @@
+var funcPickupEnergy = require('func.pickup.energy')
+
+
 var roleUpgrader = {
 
     /** @param {Creep} creep **/
@@ -5,11 +8,11 @@ var roleUpgrader = {
 
         if(creep.memory.upgrading && creep.carry.energy == 0) {
             creep.memory.upgrading = false;
-                creep.say('Ã°ÂÂÂ');
+                creep.say('hungry');
         }
         if(!creep.memory.upgrading && creep.carry.energy == creep.carryCapacity) {
             creep.memory.upgrading = true;
-            creep.say('Ã¢ÂÂ¡');
+            creep.say('gogogo');
         }
 
         if(creep.memory.upgrading) {
@@ -18,15 +21,12 @@ var roleUpgrader = {
             }
         }
         else {
-            // var energy = creep.pos.findClosestByPath(FIND_DROPPED_ENERGY, 1);
-            // if(creep.pickup(energy) == ERR_NOT_IN_RANGE) {
-            //     creep.moveTo(energy, {visualizePathStyle: {stroke: '#008888'}});
-            //     creep.say('Ã°ÂÂÂ©');
+            funcPickupEnergy.run(creep);
+
+            // var sources = creep.room.find(FIND_SOURCES);
+            // if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
+            //     creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#ffaa00'}});
             // }
-            var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#ffaa00'}});
-            }
         }
     }
 };

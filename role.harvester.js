@@ -7,8 +7,8 @@ var roleHarvester = {
     /** @param {Creep} creep **/
     run: function(creep) {
 	    if(creep.carry.energy < creep.carryCapacity) {
-            funcHarvest.run(creep);
-            // funcPickupEnergy.run(creep);
+            funcPickupEnergy.run(creep);
+            // funcHarvest.run(creep);
         }
         else {
             var targets = creep.pos.findClosestByPath(FIND_STRUCTURES, {
@@ -24,7 +24,7 @@ var roleHarvester = {
             });
                 if(creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets, {visualizePathStyle: {stroke: '#ffffff'}});
-                    creep.say('Ã¢ÂÂ¡');
+                    creep.say('feeding');
                 }
         }
         if (targets == undefined) {
