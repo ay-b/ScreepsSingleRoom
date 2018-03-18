@@ -9,13 +9,13 @@ var roleBuilder = {
 
 	    if(creep.memory.building && creep.carry.energy == 0) {
             creep.memory.building = false;
-            creep.say('🍔');
+            creep.say('🔌');
 	    }
 	    if(!creep.memory.building && creep.carry.energy == creep.carryCapacity) {
 	        creep.memory.building = true;
 	        // var sources = creep.pos.findClosestByPath(FIND_SOURCES)
 	        // creep.moveTo(sources) == ERR_NOT_IN_RANGE;
-			creep.say('🔨');
+			creep.say('⚡');
 			funcPickupEnergy.run(creep);
 		}
 

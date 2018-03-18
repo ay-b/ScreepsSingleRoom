@@ -7,8 +7,8 @@ var roleMidas1 = require('role.midas1');
 var funcHarvest = require('func.harvest');
 var funcPickupEnergy = require('func.pickup.energy');
 
-var UpgradersNames = ['Aegir', 'Aesir', 'Angrboda', 'Askr', 'Audhumla', 'Austri', 'Austri', 'Balder', 'Bragi', 'Byggvir', 'Beyla', 'Disir', 'Dwarves', 'Earth', 'Easter', 'Edda', 'Eir', 'Elves', 'Embla', 'Etins', 'Fenrir', 'Forseti', 'Frey', 'Freya', 'Frigga', 'Gefjon', 'Gungnir', 'Harrow', 'Heimdall', 'Hel', 'Hod', 'Hoenir', 'Hof', 'Holda', 'Idunna', 'Ing', 'Irminsul', 'Jormungandr', 'Kvasir', 'Land-wights', 'Lif', 'Lodurr', 'Lofn', 'Loki', 'Midgard Serpent', 'Mimir', 'Mjollnir', 'Moon', 'Muspilli', 'Nanna', 'Nerthus', 'Nine Worlds', 'Njord', 'Norns', 'Odin', 'Odr', 'Odroerir', 'PoeticEdda', 'ProseEdda', 'Ragnarok', 'Ratatosk', 'Runes', 'Saga', 'SÃÂÃÂ¡ga', 'Saxnot', 'Sif', 'Sigyn', 'Sjofn', 'Skadi', 'Skirnir', 'Sleipnir', 'Snotra', 'Sunna', 'Surt', 'Syn', 'Thor', 'Thjalfi', 'Thrud', 'Thurse', 'Troll', 'Tyr', 'Ull', 'Utgard', 'Vali', 'Valkyries', 'Vanir', 'Var', 'Ve', 'Vidar', 'Vili', 'Vingolf', 'Vor', 'Walpurga', 'WartAlfs', 'Wayland', 'Wild Hunt', 'Yggdrasill'];
-var BuildersNames = ['Ardhanarishvara', 'Muneeswarar', 'Muthappan', 'Bhairava', 'Nataraja', 'Pashupati', 'Harihara', 'Rudra', 'Lingam', 'Dakshinamurthy', 'Ravananugraha', 'Vaidheeswara', 'Lingodbhava', 'Somaskanda', 'Bhikshatana', 'SriManjunatha', 'Narayana', 'Thirumal', 'Perumal', 'Jagannath', 'Hayagriva', 'Venkateshwara', 'VaikunthaChaturmurti', 'VaikunthaKamalaja', 'Mohini', 'LakshmiNarayan', 'Vishvarupa', 'Ranganatha', 'Dasavatara', 'Padmanabha', 'AnantaShayana'];
+var UpgradersNames = ['Aegir', 'Aesir', 'Angrboda', 'Askr', 'Audhumla', 'Austri', 'Austri', 'Balder', 'Bragi', 'Byggvir', 'Beyla', 'Disir', 'Dwarves', 'Earth', 'Easter', 'Edda', 'Eir', 'Elves', 'Embla', 'Etins', 'Fenrir', 'Forseti', 'Frey', 'Freya', 'Frigga', 'Gefjon', 'Gungnir', 'Harrow', 'Heimdall', 'Hel', 'Hod', 'Hoenir', 'Hof', 'Holda', 'Idunna', 'Ing', 'Irminsul', 'Jormungandr', 'Kvasir', 'Land-wights', 'Lif', 'Lodurr', 'Lofn', 'Loki', 'Midgard Serpent', 'Mimir', 'Mjollnir', 'Moon', 'Muspilli', 'Nanna', 'Nerthus', 'Nine Worlds', 'Njord', 'Norns', 'Odin', 'Odr', 'Odroerir', 'PoeticEdda', 'ProseEdda', 'Ragnarok', 'Ratatosk', 'Runes', 'Saga', 'SÃÂÃÂÃÂÃÂ¡ga', 'Saxnot', 'Sif', 'Sigyn', 'Sjofn', 'Skadi', 'Skirnir', 'Sleipnir', 'Snotra', 'Sunna', 'Surt', 'Syn', 'Thor', 'Thjalfi', 'Thrud', 'Thurse', 'Troll', 'Tyr', 'Ull', 'Utgard', 'Vali', 'Valkyries', 'Vanir', 'Var', 'Ve', 'Vidar', 'Vili', 'Vingolf', 'Vor', 'Walpurga', 'WartAlfs', 'Wayland', 'Wild Hunt', 'Yggdrasill'];
+var BuildersNames = ['Ardhanarishvara', 'Muneeswarar', 'Muthappan', 'Bhairava', 'Nataraja', 'Pashupati', 'Harihara', 'Rudra', 'Lingam', 'Dakshinamurthy', 'Ravananugraha', 'Vaidheeswara', 'Lingodbhava', 'Somaskanda', 'Bhikshatana', 'SriManjunatha', 'Narayana', 'Thirumal', 'Perumal', 'Jagannath', 'Hayagriva', 'Venkateshwara', 'Vaikuntha', 'Chaturmurti', 'Vaikuntha', 'Kamalaja', 'Mohini', 'Lakshmi', 'Narayan', 'Vishvarupa', 'Ranganatha', 'Dasavatara', 'Padmanabha', 'AnantaShayana'];
 
 module.exports.loop = function () {
 
@@ -33,70 +33,72 @@ module.exports.loop = function () {
     var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
     var midas = _.filter(Game.creeps, (creep) => creep.memory.role == 'midas');
     var midas1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'midas1');
-    // console.log('Harvesters: ' + harvesters.length);
-    // console.log('Builders: ' + builders.length);
-    // console.log('Upgraders: ' + upgraders.length);
-    // console.log('Repairers: ' + repairers.length);
-    // console.log('Midas: ' + midas.length);
+    
+    // Getting stats
+    var timer = Game.time % 30;
+    if (timer == 0) {
+        console.log(' _____________________');
+        console.log(' | Energy in store: ' +Game.spawns.Spawn1.room.energyAvailable + '|');
+        console.log(' =====================');
+        console.log(' |Hrv|Bld|Upg|Rep|Mid|')
+        console.log(' | ' + harvesters.length + ' | ' + builders.length + ' | ' + upgraders.length + ' | ' + repairers.length + ' | ' + midas.length + ' | ');
+        console.log(' `````````````````````');
+    };
 
-    if (midas.length < 2) {
-        var workers = _.filter(Game.creeps, (creep) => creep.memory.midas == '1');
-        var newName = 'Midas' + Game.time;
-        console.log('Spawning new midas: ' + newName);
-        if (workers.length > 1) {
-            var pot = 1;
-        }
+    if (Game.spawns.Spawn1.room.energyAvailable > 600){
+        if (midas.length < 2) {
+            if (Memory.pot == 1) {
+                Memory.pot = 0;
+            }
+            else {
+                Memory.pot = 1
+            }
+            var newName = 'Midas' + Game.time;
+            console.log('Spawning new midas: ' + newName);
+            Game.spawns['Spawn1'].spawnCreep([WORK, WORK, WORK, WORK, WORK, CARRY, MOVE], newName,
+                { memory: { role: 'midas', source: Memory.pot }});
+            }
         else {
-            var pot = 0;
-        }
-        Game.spawns['Spawn1'].spawnCreep([WORK, WORK, WORK, WORK, WORK, CARRY, MOVE], newName,
-            { memory: { role: 'midas', source: pot }});
-    }
-    else {
-        if(harvesters.length < 2) {
-            var newName = 'Harvester' + Game.time;
-            console.log('Spawning new harvester: ' + newName);
-            Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 
-                {memory: {role: 'harvester'}});        
-        }
-        
-        else {
-            if(builders.length < 1) {
-                // var newName = 'Builder' + Game.time;
-                var newName = BuildersNames[Math.floor(Math.random() * UpgradersNames.length)];
-                console.log('Spawning new builder: ' + newName);
-                Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,CARRY,MOVE,MOVE], newName, 
-                    {memory: {role: 'builder'}});        
+            if(harvesters.length < 4) {
+                var newName = 'Harvester' + Game.time;
+                console.log('Spawning new harvester: ' + newName);
+                Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 
+                    {memory: {role: 'harvester'}});        
             }
             
-            if(upgraders.length < 3) {
-                // var newName = 'Upgrader' + Game.time;
-                var newName = UpgradersNames[Math.floor(Math.random() * UpgradersNames.length)];
-                console.log('Spawning new upgrader: ' + newName);
-                Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE], newName, 
-                    {memory: {role: 'upgrader'}});        
-            }
-            
-            if(repairers.length < 1) {
-                var newName = 'R' + Game.time;
-                console.log('Spawning new repairer: ' + newName);
-                Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE], newName, 
-                    {memory: {role: 'repairer'}});        
-            }
-            // if (midas1.length < 1) {
-            //     var newName = 'M' + Game.time;
-            //     console.log('Spawning new midas: ' + newName);
-            //     Game.spawns['Spawn1'].spawnCreep([WORK, WORK, WORK, WORK, WORK, CARRY, MOVE], newName,
-            //         { memory: { role: 'midas1', source: 0 } });
-            // }
+            else {
+                if(builders.length < 1) {
+                    // var newName = 'Builder' + Game.time;
+                    var newName = BuildersNames[Math.floor(Math.random() * UpgradersNames.length)];
+                    console.log('Spawning new builder: ' + newName);
+                    Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,CARRY,MOVE,MOVE], newName, 
+                        {memory: {role: 'builder'}});        
+                }
+                
+                if(upgraders.length < 5) {
+                    // var newName = 'Upgrader' + Game.time;
+                    var newName = UpgradersNames[Math.floor(Math.random() * UpgradersNames.length)];
+                    console.log('Spawning new upgrader: ' + newName);
+                    Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 
+                        {memory: {role: 'upgrader'}});        
+                }
+                // Temporary off. Harvesters will replace repairers upon absence of work                
+                //
+                // if(repairers.length < 0) {
+                //     var newName = 'R' + Game.time;
+                //     console.log('Spawning new repairer: ' + newName);
+                //     Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE], newName, 
+                //         {memory: {role: 'repairer'}});        
+                // }
 
-            if(Game.spawns['Spawn1'].spawning) {
-                var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
-                Game.spawns['Spawn1'].room.visual.text(
-                    'Spwn: ' + spawningCreep.memory.role,
-                    Game.spawns['Spawn1'].pos.x + 1, 
-                    Game.spawns['Spawn1'].pos.y, 
-                    {align: 'left', opacity: 0.8});
+                if(Game.spawns['Spawn1'].spawning) {
+                    var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
+                    Game.spawns['Spawn1'].room.visual.text(
+                        'Spwn: ' + spawningCreep.memory.role,
+                        Game.spawns['Spawn1'].pos.x + 1, 
+                        Game.spawns['Spawn1'].pos.y, 
+                        {align: 'left', opacity: 0.8});
+                }
             }
         }
     }
