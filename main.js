@@ -9,6 +9,7 @@ var funcPickupEnergy = require('func.pickup.energy');
 
 var UpgradersNames = ['Aegir', 'Aesir', 'Angrboda', 'Askr', 'Audhumla', 'Austri', 'Austri', 'Balder', 'Bragi', 'Byggvir', 'Beyla', 'Disir', 'Dwarves', 'Earth', 'Easter', 'Edda', 'Eir', 'Elves', 'Embla', 'Etins', 'Fenrir', 'Forseti', 'Frey', 'Freya', 'Frigga', 'Gefjon', 'Gungnir', 'Harrow', 'Heimdall', 'Hel', 'Hod', 'Hoenir', 'Hof', 'Holda', 'Idunna', 'Ing', 'Irminsul', 'Jormungandr', 'Kvasir', 'Land-wights', 'Lif', 'Lodurr', 'Lofn', 'Loki', 'Midgard Serpent', 'Mimir', 'Mjollnir', 'Moon', 'Muspilli', 'Nanna', 'Nerthus', 'Nine Worlds', 'Njord', 'Norns', 'Odin', 'Odr', 'Odroerir', 'PoeticEdda', 'ProseEdda', 'Ragnarok', 'Ratatosk', 'Runes', 'Saga', 'SÃÂÃÂÃÂÃÂ¡ga', 'Saxnot', 'Sif', 'Sigyn', 'Sjofn', 'Skadi', 'Skirnir', 'Sleipnir', 'Snotra', 'Sunna', 'Surt', 'Syn', 'Thor', 'Thjalfi', 'Thrud', 'Thurse', 'Troll', 'Tyr', 'Ull', 'Utgard', 'Vali', 'Valkyries', 'Vanir', 'Var', 'Ve', 'Vidar', 'Vili', 'Vingolf', 'Vor', 'Walpurga', 'WartAlfs', 'Wayland', 'Wild Hunt', 'Yggdrasill'];
 var BuildersNames = ['Ardhanarishvara', 'Muneeswarar', 'Muthappan', 'Bhairava', 'Nataraja', 'Pashupati', 'Harihara', 'Rudra', 'Lingam', 'Dakshinamurthy', 'Ravananugraha', 'Vaidheeswara', 'Lingodbhava', 'Somaskanda', 'Bhikshatana', 'SriManjunatha', 'Narayana', 'Thirumal', 'Perumal', 'Jagannath', 'Hayagriva', 'Venkateshwara', 'Vaikuntha', 'Chaturmurti', 'Vaikuntha', 'Kamalaja', 'Mohini', 'Lakshmi', 'Narayan', 'Vishvarupa', 'Ranganatha', 'Dasavatara', 'Padmanabha', 'AnantaShayana'];
+var HarvestersNames = ['Oceanus', 'Tethys', 'Iapetus', 'Coeus', 'Phoebe', 'Cronus', 'Rhea', 'Themis', 'Mnemosyne', 'Hyperion', 'Theia', 'Crius', 'leione', 'Atlas', 'Zeus', 'Hera', 'Poseidon', 'Hestia', 'Hades', 'Demeter', 'Semele', 'Maia', 'Leto', 'Dionysus', 'Hermes', 'Apollo', 'Artemis', 'Athena', 'Ares', 'Hephaestus'];
 
 module.exports.loop = function () {
 
@@ -45,6 +46,16 @@ module.exports.loop = function () {
         console.log(' `````````````````````');
     };
 
+    var timer = Game.time % 36000;
+    if (timer == 0) {
+        for(var name in Memory.creeps) {
+                if(!Game.creeps[name]) {
+                    delete Memory.creeps[name];
+                    console.log('Clearing non-existing creep memory:', name);
+                }
+            }
+    }
+
     if (Game.spawns.Spawn1.room.energyAvailable > 600){
         if (midas.length < 2) {
             if (Memory.pot == 1) {
@@ -60,7 +71,7 @@ module.exports.loop = function () {
             }
         else {
             if(harvesters.length < 4) {
-                var newName = 'Harvester' + Game.time;
+                var newName = HarvestersNames[Math.floor(Math.random() * HarvestersNames.length)];
                 console.log('Spawning new harvester: ' + newName);
                 Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 
                     {memory: {role: 'harvester'}});        

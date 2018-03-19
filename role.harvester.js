@@ -1,4 +1,4 @@
-var roleUpgrader = require('role.builder');
+var roleRepairer = require('role.repairer');
 var funcHarvest = require('func.harvest');
 var funcPickupEnergy = require('func.pickup.energy');
 
@@ -24,20 +24,15 @@ var roleHarvester = {
             });
                 if(creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets, {visualizePathStyle: {stroke: '#ffffff'}});
-                    creep.say('feeding');
+                    creep.say('💎');
                 }
         }
         if (targets == undefined) {
-            roleUpgrader.run(creep);
-        } 
-        var closestHostile = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS, {
-            filter: (creep) => {return (creep.owner != 'Denter')}
-        });
-            if(closestHostile) {
-                var tower = creep.pos.findClosestByRange(FIND_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_TOWER)}});
-                creep.moveTo(tower);
+            if(creep.transfer(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(creep.room.storage, {visualizePathStyle: {stroke: '#ffffff'}});
+                creep.say('💎');
             }
-
+        } 
 	}
 };
 
