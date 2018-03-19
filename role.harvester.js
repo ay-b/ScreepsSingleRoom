@@ -24,15 +24,15 @@ var roleHarvester = {
             });
                 if(creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets, {visualizePathStyle: {stroke: '#ffffff'}});
-                    creep.say('💎');
+                    creep.say('⚡');
                 }
+            if (targets == undefined) {
+                if(creep.transfer(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(creep.room.storage, {visualizePathStyle: {stroke: '#ffffff'}});
+                    creep.say('ð');
+                }
+            } 
         }
-        if (targets == undefined) {
-            if(creep.transfer(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(creep.room.storage, {visualizePathStyle: {stroke: '#ffffff'}});
-                creep.say('💎');
-            }
-        } 
 	}
 };
 

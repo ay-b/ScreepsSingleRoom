@@ -8,12 +8,12 @@ var roleRepaier = {
 
         if(creep.memory.repairing && creep.carry.energy == 0) {
             creep.memory.repairing  = false;
-            creep.say('🔌');
+            creep.say('ð');
         };
 
         if(!creep.memory.repairing && creep.carry.energy == creep.carryCapacity) {
             creep.memory.repairing = true;
-            creep.say('🛠');
+            creep.say('ð ');
         };
 
         if(creep.memory.repairing) {
@@ -22,7 +22,7 @@ var roleRepaier = {
             });
             if (creep.repair(targets) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(targets, { visualizePathStyle: { stroke: '#ffaa00' } });
-                creep.say('🛠');
+                creep.say('ð ');
            }
         }
         else {    

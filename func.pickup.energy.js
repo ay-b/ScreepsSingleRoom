@@ -10,7 +10,7 @@ var funcPickupEnergy = {
         // console.log(energy);
         if (creep.pickup(energy) == ERR_NOT_IN_RANGE) {
             creep.moveTo(energy, {visualizePathStyle: {stroke: '#008888'}});
-            creep.say('🔌');
+            creep.say('ð');
         }
     }
 };
